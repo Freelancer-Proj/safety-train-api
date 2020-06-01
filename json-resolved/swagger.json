@@ -1,7 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "API Genichips",
+    "description" : "API Genichips From Github",
     "version" : "1.0.0",
     "title" : "API Genichips",
     "termsOfService" : "https:/localhost/",
