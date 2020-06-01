@@ -10,8 +10,8 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 
-host: "localhost"
-basePath: "/v2"
+host: "118.69.180.0:5000"
+basePath: "/api/v1"
 tags:
 - name: "user"
   description: "Operations about user"
@@ -24,8 +24,8 @@ tags:
     description: "Find out more about our store"
     url: "http://swagger.io"
 schemes:
-- "https"
 - "http"
+- "https"
 paths:
   /checkhealth:
     get:
@@ -87,7 +87,7 @@ paths:
           schema:
             $ref: '#/definitions/ApiResponse'          
 
-  /api/v1/users/:
+  /api/v1/users:
     get:
       tags:
       - "user"
@@ -103,6 +103,22 @@ paths:
         type: "string"
         required: true
         description: "Only admin can load and config this page"
+
+      - in: "query"
+        name: "page"
+        schema:
+          type: integer
+          default: 0
+        required: false
+        description: "The page of list user"
+      
+      - in: "query"
+        name: "limit"
+        schema:
+          type: integer
+          default: 10
+        required: false
+        description: "The item of each page. Default will be 10 if limit value not exists"
 
       responses:
         "200":
