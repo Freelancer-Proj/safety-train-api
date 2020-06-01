@@ -12,3 +12,5 @@ token decode : jwt.encode({'id' : data_return['id'], 'role' : data_return['role_
   - machine: https://raw.githubusercontent.com/Freelancer-Proj/safety-train-api/master/api_yaml/api_machine.yaml
   - city: https://raw.githubusercontent.com/Freelancer-Proj/safety-train-api/master/api_yaml/api_city.yaml
   - camera: https://raw.githubusercontent.com/Freelancer-Proj/safety-train-api/master/api_yaml/api_camera.yaml
+
+- Pass url into https://editor.swagger.io/ to see the format API.
