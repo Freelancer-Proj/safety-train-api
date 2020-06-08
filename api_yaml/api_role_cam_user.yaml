@@ -37,7 +37,6 @@ paths:
         type: "string"
         required: true        
         description: "Only admin can load and config this page"
-
       - in: "body"
         name: "body"
         description: "Created object"
@@ -62,8 +61,17 @@ paths:
       produces:
       # - "application/xml"
       - "application/json"
-      parameters: []
-
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        type: "string"
+        required: true        
+        description: "Only admin can load and config this page"
+      - in: query
+        name: user_id
+        type: integer
+        required: false
+        description: Load config by user
       responses:
         "200":
           description: "successful operation"
@@ -219,12 +227,16 @@ definitions:
       id:
         type: "integer"
         format: "int32"          
-      update_user_id:
+      bus_user_id:
         type: "integer"
         format: "int32"  
       bus_camera_id:
         type: "integer"
-        format: "int32" 
+        format: "int32"
+      bus_user_name:
+        type: "string"
+      bus_camera_name:
+        type: "string"        
 
     xml:
       name: "role_cam_user"
@@ -232,7 +244,7 @@ definitions:
   role_cam_user_no_id:
     type: "object"
     properties:
-      update_user_id:
+      bus_user_id:
         type: "integer"
         format: "int32"  
       bus_camera_id:
@@ -240,6 +252,7 @@ definitions:
         format: "int32"  
     xml:
       name: "role_cam_user"
+
 
   ApiResponse:
     type: "object"
