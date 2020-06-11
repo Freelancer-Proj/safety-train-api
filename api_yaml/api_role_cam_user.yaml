@@ -63,16 +63,16 @@ paths:
       # - "application/xml"
       - "application/json"
       parameters:
-        - in: "header"
-          name: "Authorization"
-          type: "string"
-          required: true        
-          description: "Only admin can load and config this page"
-        - in: query
-          name: user_id
-          type: integer
-          required: false
-          description: Load config by user
+      - in: "header"
+        name: "Authorization"
+        type: "string"
+        required: true        
+        description: "Only admin can load and config this page"
+      - in: query
+        name: user_id
+        type: integer
+        required: false
+        description: Load config by user
       responses:
         "200":
           description: "successful operation"
@@ -228,17 +228,17 @@ definitions:
       id:
         type: "integer"
         format: "int32"          
-        bus_user_id:
+      bus_user_id:
         type: "integer"
         format: "int32"  
       bus_camera_id:
         type: "integer"
         format: "int32"
-        bus_user_name:
-          type: "string"
-        bus_camera_name:
-          type: "string"
-          
+      bus_user_name:
+        type: "string"
+      bus_camera_name:
+        type: "string"
+
     xml:
       name: "role_cam_user"
   
