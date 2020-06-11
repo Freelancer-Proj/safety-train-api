@@ -246,7 +246,7 @@ definitions:
   role_cam_user_no_id:
     type: "object"
     properties:
-      update_user_id:
+      bus_user_id:
         type: "integer"
         format: "int32"  
       bus_cameras:
