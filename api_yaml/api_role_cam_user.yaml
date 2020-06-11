@@ -37,6 +37,7 @@ paths:
         type: "string"
         required: true        
         description: "Only admin can load and config this page"
+
       - in: "body"
         name: "body"
         description: "Created object"
@@ -62,16 +63,16 @@ paths:
       # - "application/xml"
       - "application/json"
       parameters:
-      - in: "header"
-        name: "Authorization"
-        type: "string"
-        required: true        
-        description: "Only admin can load and config this page"
-      - in: query
-        name: user_id
-        type: integer
-        required: false
-        description: Load config by user
+        - in: "header"
+          name: "Authorization"
+          type: "string"
+          required: true        
+          description: "Only admin can load and config this page"
+        - in: query
+          name: user_id
+          type: integer
+          required: false
+          description: Load config by user
       responses:
         "200":
           description: "successful operation"
@@ -227,32 +228,54 @@ definitions:
       id:
         type: "integer"
         format: "int32"          
-      bus_user_id:
+        bus_user_id:
         type: "integer"
         format: "int32"  
       bus_camera_id:
         type: "integer"
         format: "int32"
-      bus_user_name:
-        type: "string"
-      bus_camera_name:
-        type: "string"        
-
+        bus_user_name:
+          type: "string"
+        bus_camera_name:
+          type: "string"
+          
     xml:
       name: "role_cam_user"
+  
 
   role_cam_user_no_id:
     type: "object"
     properties:
-      bus_user_id:
+      update_user_id:
         type: "integer"
         format: "int32"  
-      bus_camera_id:
-        type: "integer"
-        format: "int32"  
+      bus_cameras:
+        type: "array"
+        items: 
+          type: "object"
+          properties:
+            id:
+              type: "integer"
+              format: "int32"          
+            bus_camera_id:
+              type: "integer"
+              format: "int32"
+            delete:
+              type: "boolean"
+              format: "int32"
+        example:
+          - id: 10
+            bus_camera_id: 1
+            delete: true
+          - id: 11
+            bus_camera_id: 2
+            delete: false
+          - id: 12
+            bus_camera_id: 3
+          - id: null
+            bus_camera_id: 4
     xml:
-      name: "role_cam_user"
-
+      name: "role_cam_user_no_id"
 
   ApiResponse:
     type: "object"
